@@ -13,6 +13,7 @@
             background-color: #e9f5ff;
             font-family: 'Arial', sans-serif;
             margin: 0;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         .container {
@@ -75,6 +76,7 @@
             margin: 10px 0;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -83,23 +85,10 @@
     <button id="revealButton">Reveal Message</button>
 
     <div class="activity-box" id="activityTop">
-        <!-- <span class="letter">A</span>
-        <span class="letter">C</span>
-        <span class="letter">T</span>
-        <span class="letter">I</span>
-        <span class="letter">V</span>
-        <span class="letter">I</span>
-        <span class="letter">T</span>
-        <span class="letter">Y</span> -->
+        <!-- Optional activity letters can be added here -->
     </div>
     <div class="activity-box" id="activityBottom">
-        <!-- <span class="letter">T</span>
-        <span class="letter">R</span>
-        <span class="letter">A</span>
-        <span class="letter">C</span>
-        <span class="letter">K</span>
-        <span class="letter">E</span>
-        <span class="letter">D</span> -->
+        <!-- Optional activity letters can be added here -->
     </div>
 
     <div class="message" id="hiddenMessage">
@@ -131,6 +120,13 @@
         setTimeout(() => {
             message.style.opacity = 1; // fade in effect
         }, 100); // Short delay for the fade-in effect
+
+        // Trigger confetti
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
     });
 </script>
 
